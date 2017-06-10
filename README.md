@@ -1,2 +1,3 @@
-# free-math-webapp
-WebApp for the free-math project
+# Free-Math WebApp
+
+Will have better readme soon.
