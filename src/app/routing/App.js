@@ -30,8 +30,7 @@ import Root from './Root'
  *    }
  *  }
  */
-import Home from './Home'
-import User from './User'
+
 
 class App extends React.Component {
   render () {
@@ -39,8 +38,7 @@ class App extends React.Component {
       <MuiThemeProvider>
         <Router>
           <Root >
-            <Route exact path="/" component={Home}></Route>
-            <Route path="/userList" component={Home}></Route>
+          
           </Root>
         </Router>
       </MuiThemeProvider>
