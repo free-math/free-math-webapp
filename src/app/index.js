@@ -36,7 +36,7 @@ const myLogger = (store) => (next) => (action) => {
 const store = createStore(
   reducers,
   {},
-  applyMiddleware(myLogger, logger())
+  applyMiddleware(myLogger, logger)
 )
 
 store.subscribe(() => {
@@ -46,6 +46,7 @@ store.subscribe(() => {
 /**
  * App Rendering
  */
+
 render(
   <Provider store={store}>
     <App />
