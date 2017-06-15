@@ -31,6 +31,14 @@ import Root from './Root'
  *  }
  */
 
+/**
+ * Importing main scenes for routing
+ */
+import Solve       from '../scenes/Solve'
+import Develop     from '../scenes/Develop'
+import Donate      from '../scenes/Donate'
+import Learn       from '../scenes/Learn'
+import Participate from '../scenes/Participate'
 
 class App extends React.Component {
   render () {
@@ -38,7 +46,12 @@ class App extends React.Component {
       <MuiThemeProvider>
         <Router>
           <Root >
-          
+            <Route exact path="/" component={Solve}></Route>
+            <Route path="/solve" component={Solve}></Route>
+            <Route path="/develop" component={Develop}></Route>
+            <Route path="/donate" component={Donate}></Route>
+            <Route path="/learn" component={Learn}></Route>
+            <Route path="/participate" component={Participate}></Route>
           </Root>
         </Router>
       </MuiThemeProvider>

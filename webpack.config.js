@@ -3,6 +3,7 @@ const path = require('path')
 const DIST_DIR = path.resolve(__dirname, "dist") // Distribuition directory path
 const SRC_DIR = path.resolve(__dirname, "src")   // Source directory path
 
+
 const config = {
   entry: SRC_DIR + '/app/index.js', // Webpack starting point
   output: {                         // Object with Webpack output info
@@ -23,8 +24,9 @@ const config = {
             'stage-2'
           ]
         }
-      }
-    ]
+      },
+      {test: /\.css$/, use: 'css-loader'}
+    ],
   }
 }
 
