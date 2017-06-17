@@ -26,12 +26,16 @@ const config = {
         }
       },
       {
-        test: /\.css$/,
-        include: [/node_modules/],
-        loader: ['style-loader', 'to-string-loader', 'css-loader']
+        test: /\.css$/,             // Look for css files
+        include: [/node_modules/],  // Look into node_modules folder
+        loader: [                   // ## Loads from bottom to top
+          'style-loader',           // 2 - Inject the styles into the page
+          'css-loader'              // 1 - Loads the css when importing into the Component
+        ]
       }
     ],
   }
 }
 
+//Exporting everything
 module.exports = config
