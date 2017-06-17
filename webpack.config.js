@@ -25,7 +25,11 @@ const config = {
           ]
         }
       },
-      {test: /\.css$/, use: 'css-loader'}
+      {
+        test: /\.css$/,
+        include: [/node_modules/],
+        loader: ['style-loader', 'to-string-loader', 'css-loader']
+      }
     ],
   }
 }
