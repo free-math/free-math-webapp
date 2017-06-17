@@ -1,6 +1,14 @@
+/**
+ * Packages import
+ */
 import React from 'react'
 import {connect} from 'react-redux'
 import Hologram from 'hologram-image-upload'
+
+/**
+ * Package Style
+ */
+import 'hologram-image-upload/dist/css/Hologram.css'
 
 class UploadForm extends React.Component {
 
