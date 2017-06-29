@@ -2,7 +2,9 @@
  * Packages import
  */
 import React from 'react'
-import {connect} from 'react-redux'
+import request from 'superagent'
+import { connect } from 'react-redux'
+import config from '../config/config.js'
 import Hologram from 'hologram-image-upload'
 
 /**
@@ -19,15 +21,28 @@ class UploadForm extends React.Component {
     }
   }
 
-  testDrop(accept, reject) {
-
-    console.log(accept)
+  testDrop(file, data) {
+    return new Promise((resolve, reject) => {
+      if (data.preview.indexOf(',') != -1) {
+        data.preview = data.preview.split(',')[1]
+      }
+      data = data.preview
+      const options = {
+        lang: 'eng',
+        data
+      }
+      request.post(`${config.api.address}/ocr`).send(options).end((err, res) => {
+        if (err) return reject(err)
+        console.log(res.body.fileContent  )
+        resolve(res.text)
+      })
+    })
   }
 
   render() {
     return(
       <div>
-        <Hologram uploader={(file) => this.testDrop(file)}></Hologram>
+        <Hologram uploadFunction={this.testDrop.bind(this)} ></Hologram>
       </div>
     )
   }
